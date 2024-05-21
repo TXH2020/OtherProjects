@@ -1,0 +1,59 @@
+<html>
+    <body>
+        MonthNumber:<input type="text" id="num"><button onclick="activate()">Convert</button><br>
+        MonthName:<input type="text" id='mname' readonly>
+    <script>
+function number2name(){
+    var no=parseInt(document.getElementById('num').value)
+    function a(){
+        no=Math.floor(no);
+        switch(no){
+                case 1:
+                document.getElementById('mname').value="January"
+                break;
+                case 2:
+                document.getElementById('mname').value="February"
+                break;
+                case 3:
+                document.getElementById('mname').value="March"
+                break;
+                case 4:
+                document.getElementById('mname').value="April"
+                break;
+                case 5:
+                document.getElementById('mname').value="May"
+                break;
+                case 6:
+                document.getElementById('mname').value="June"
+                break;
+                case 7:
+                document.getElementById('mname').value="July"
+                break;
+                case 8:
+                document.getElementById('mname').value="August"
+                break;
+                case 9:
+                document.getElementById('mname').value="September"
+                break;
+                case 10:
+                document.getElementById('mname').value="October"
+                break;
+                case 11:
+                document.getElementById('mname').value="November"
+                break;
+                case 12:
+                document.getElementById('mname').value="December"
+                break;
+                default:
+                document.getElementById('mname').value='BadNumber'
+        }
+        
+    }
+    return a;
+}
+function activate(){
+    number2name()()
+}
+</script>
+</body>
+</html>

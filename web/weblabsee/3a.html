@@ -1,0 +1,20 @@
+<html>
+    <body>
+        Price:<input type="text" id="price"><br>
+        Tax:<input type="text" id="tax"><button onclick="activate()">Calculate</button><br>
+        Total Price:<input type="text" id='tprice' readonly>
+    <script>
+function number2name(){
+    var price=parseFloat(document.getElementById('price').value)
+    var tax=parseFloat(document.getElementById('tax').value)
+    function a(){
+        document.getElementById('tprice').value=price+price*tax;
+    }
+    return a;
+}
+function activate(){
+    number2name()()
+}
+</script>
+</body>
+</html>

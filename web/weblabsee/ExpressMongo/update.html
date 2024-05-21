@@ -1,0 +1,53 @@
+<html>  
+<body>  
+<h1>Update A Record(/s)</h1><br>
+First we need to select a field for updation.<br>
+<input type="radio" id='uf1' name='uf' value="field1">Field1
+<input type="radio" id='uf2' name='uf' value="field2">Field2
+<input type="radio" id='uf3' name='uf' value="field3">Field3
+<input type="radio" id='uf4' name='uf' value="field4">Field4<br>
+<p id="ufn"></p><input type="text" id="hifv"><button onclick="setHIF()">Set Value</button>
+<form action="update_record" method="get">
+<input type="hidden" id='hif' name="hif"><br>  
+Field1: <input type="text" name="field1"><br>
+Field2: <input type="text" name="field2"><br>
+Field3: <input type="text" name="field3"><br>
+Field4: <input type="text" name="field4"><br>
+And we can add more fields like this  
+<input type="submit" value="Submit">  
+</form>
+<script>
+var globval1;
+var globval2;
+var r1=document.getElementById('uf1');
+var r2=document.getElementById('uf2');
+var r3=document.getElementById('uf3');
+var r4=document.getElementById('uf4');
+r1.addEventListener('click',(event)=>{
+    document.getElementById('ufn').innerText=r1.value;
+    globval1=r1.value;
+})
+r2.addEventListener('click',(event)=>{
+    document.getElementById('ufn').innerText=r2.value;
+    globval1=r2.value;
+})
+r3.addEventListener('click',(event)=>{
+    document.getElementById('ufn').innerText=r3.value;
+    globval1=r3.value;
+})
+r4.addEventListener('click',(event)=>{
+    document.getElementById('ufn').innerText=r4.value;
+    globval1=r4.value;
+})
+function setHIF(){
+globval2=document.getElementById('hifv').value;
+var obj1=[]
+var obj = {};
+obj[globval1.valueOf()] = globval2;
+obj1.push(obj);
+console.log(obj1[0])
+document.getElementById('hif').value=JSON.stringify(obj1[0]);
+}
+</script>
+</body>  
+</html>  

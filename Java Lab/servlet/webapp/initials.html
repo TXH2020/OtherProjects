@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["name"].value;
+  if (x == "" || x == null) {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+</script>
+</head>
+<body>
+
+<h2>Extract Initials</h2>
+<form name="myForm" action="ExtInitials" onsubmit="return validateForm()" method="post" required>
+  Name: <input type="text" name="name">
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

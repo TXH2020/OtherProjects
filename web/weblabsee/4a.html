@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <script src="react/react.development.js"></script>
+    <script src="react/react-dom.development.js"></script>
+    <script src="react/prop-types.js"></script>
+    <script src="react/axios.min.js"></script>
+    <script src="react/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+        <script type="text/babel">
+            function NameAddress(){
+            const [name,setName]=React.useState('')
+            const [address,setAddress]=React.useState('')
+            function changeNameAddress(){
+                setName(document.getElementById('name').value)
+                setAddress(document.getElementById('address').value)
+            }
+            return (
+                <div>
+                    Enter Name:<input type="text" id="name" /><br/>
+                    Enter Address:<input type="text" id="address"/><button onClick={changeNameAddress}>Change</button><br/><hr/>
+                    <h1>Name={name}</h1><br/>
+                    <h1>Address={address}</h1>
+                </div>
+            )
+        }
+        ReactDOM.render(<NameAddress/>,document.getElementById('root'))
+        </script>
+    </body>
+</html>

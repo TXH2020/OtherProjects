@@ -1,0 +1,33 @@
+<html>
+    <head>
+    <meta charset="UTF-8"/>
+    <script src="react/react.development.js"></script>
+    <script src="react/react-dom.development.js"></script>
+    <script src="react/prop-types.js"></script>
+    <script src="react/axios.min.js"></script>
+    <script src="react/babel.min.js"></script>
+    </head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class FormName extends React.Component{
+    constructor(){
+        super();
+        this.state={name:''}
+    }
+    updateName=()=>{this.setState({name:document.getElementById('name').value})}
+    render(){
+        return (
+            <div>
+                <form>
+                    Enter your name:<input type="text" id="name" onInput={this.updateName} /><br/>
+                    <h1>As you type in, the changes appear here:{this.state.name}</h1>
+                </form>
+            </div>
+        )
+    }
+    }
+    ReactDOM.render(<FormName/>,document.getElementById('root'));
+</script>
+    </body>
+</html>

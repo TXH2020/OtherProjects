@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+   db:
+     image: dockercoolexp/farmeasy:v1
+     volumes:
+       - db_data:/opt/lampp/var/mysql
+    
+volumes:
+    db_data:
+
+
+
+

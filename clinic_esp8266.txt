@@ -1,0 +1,89 @@
+
+
+
+
+
+# This file is executed on every boot (including wake-boot from deepsleep)
+
+#import esp
+
+#esp.osdebug(None)
+
+import uos, machine
+
+#uos.dupterm(None, 1) # disable REPL on UART(0)
+
+import gc
+
+#import webrepl
+print('hello world')
+#webrepl.start()
+gc.collect()
+
+try:
+  import usocket as socket
+except:
+  import socket
+
+from machine import Pin
+import network
+
+import esp
+esp.osdebug(None)
+
+import gc
+gc.collect()
+
+ssid = 'realme 9 5G'
+password = '2axijjtj'
+
+station = network.WLAN(network.STA_IF)
+
+station.active(True)
+station.connect(ssid, password)
+
+while station.isconnected() == False:
+  pass
+
+print('Connection successful')
+print(station.ifconfig())
+
+
+
+
+
+
+
+
+import socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind(('',8000))
+s.listen(5)
+remedies={
+    'flu':'Oseltamivir phosphate,Honey and tea, zanamivir',
+    'constipation':'fibre encriched food, herbal laxative,probiotic supplements',
+    'foodpoisoning':'hydrating with electrolytes,adding probiotics,ginger mint tea',
+    
+}
+response=''
+while True:
+    conn, addr = s.accept()
+    print('Got a connection from %s' % str(addr))
+    request = conn.recv(1024)
+    try:
+        key=request.decode().split('\n')[-1].strip()
+        print('key=',key)
+        print('response=',remedies[key])
+        response=remedies[key].encode()
+    except:
+        pass
+    request = str(request)
+    print('Content = %s' % request)
+    conn.send(b'HTTP/1.1 200 OK\n')
+    conn.send(b'Content-Type: text/plain\n')
+    conn.send(b'Connection: close\n\n')
+    conn.sendall(response)
+    conn.close()
+
+
+

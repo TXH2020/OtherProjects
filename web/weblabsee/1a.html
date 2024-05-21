@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <input type="text" id="val">
+        <button onclick="doubleconsonant()">Click me</button>
+        <script>
+            function doubleconsonant(){
+                var output='';
+                var x=document.getElementById('val').value;
+                for(var i=0;i<x.length;i++){
+                var c=x[i].toLowerCase();
+                if(c!='e' && c!='a' && c!='i' && c!='o' && c!='u')
+                output+=x[i]+'o'+x[i]
+                else
+                output+=x[i]
+            }
+                alert(output);
+        }
+        </script>
+    </body>
+</html>

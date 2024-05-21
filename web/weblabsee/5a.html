@@ -1,0 +1,17 @@
+<html>
+    <body>
+        Enter arguments like this: (cat,5)<input type="text" id="word"><button onclick="pluralize()">Pluralize</button><br>
+        <input type="text" id="result" readonly>
+        <script>
+            function pluralize(){
+                var output;
+                var nc=document.getElementById('word').value.replace(/[()]/g,'').split(',')
+                if(nc[0]!='geese' && nc[0]!='sheep')
+                output=nc[1]+" "+nc[0]+"s"
+                else
+                output=nc[1]+" "+nc[0]
+                document.getElementById('result').value=output;
+            }
+        </script>
+    </body>
+</html>
